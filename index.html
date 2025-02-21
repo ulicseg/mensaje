@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Mensaje Anónimo</title>
+</head>
+<body>
+    <h2>Enviar Mensaje Anónimo</h2>
+    <form action="https://formsubmit.co/tuemail@ejemplo.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <label>Asunto:</label>
+        <input type="text" name="Asunto" required><br><br>
+        <label>Mensaje:</label>
+        <textarea name="Mensaje" required></textarea><br><br>
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
