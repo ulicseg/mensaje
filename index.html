@@ -4,17 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enviar Mensaje Anónimo</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
     <h2>Enviar Mensaje Anónimo</h2>
-    <form action="https://formsubmit.co/ulicseg@gmail.com" method="POST">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
+    <form id="form">
         <label>Asunto:</label>
-        <input type="text" name="Asunto" required><br><br>
+        <input type="text" name="asunto" required><br><br>
         <label>Mensaje:</label>
-        <textarea name="Mensaje" required></textarea><br><br>
+        <textarea name="mensaje" required></textarea><br><br>
         <button type="submit">Enviar</button>
     </form>
+
+    <script>
+        (function(){
+            emailjs.init("bUn7TqgmVQrVMFOF5"); // Reemplaza con tu Public Key de EmailJS
+        })();
+
+        document.getElementById('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            emailjs.sendForm("service_n06tk9x", "template_esz7mcj", this)
+                .then(function() {
+                    alert("Mensaje enviado con éxito!");
+                }, function(error) {
+                    alert("Error al enviar: " + JSON.stringify(error));
+                });
+        });
+    </script>
 </body>
 </html>
